@@ -22,7 +22,7 @@ import controllayer.*;
 //import static org.junit.Assert.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
@@ -53,7 +53,7 @@ public class TestDatabaseAccess {
 	
 	@Test
 	public void wasInsertedBuy() throws SQLException {
-		
+//											^ Adding a throw exception because of the try catch we added
 		// Arrange
 		LocalDate timeNow = java.time.LocalDate.now();
 		double payedCentAmount = 100;
@@ -68,7 +68,8 @@ public class TestDatabaseAccess {
 		DatabasePBuy dbPbuy = new DatabasePBuy();
 		
 		// Act
-		int key = 0; //TODO: Call dbPbuy
+		int key = 0; 
+		//Adding the dbPBuy call and making the test works
 		try {
 			key = dbPbuy.insertParkingBuy(tempPBuy);
 			
@@ -81,7 +82,7 @@ public class TestDatabaseAccess {
 		
 	}	
 	
-	
+	//Changint the test to make it work
 	@Test
 	public void wasRetrievedPriceDatabaselayer() {
 		// Arrange
@@ -102,7 +103,7 @@ public class TestDatabaseAccess {
 		
 	}
 	
-	
+	//changing the test to make it work
 	@Test
 	public void wasRetrievedPriceControllayer() {
 

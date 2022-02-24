@@ -55,10 +55,11 @@ public class PPayStation {
 	public void addAmount(Coin coin, PPrice currentPrice) {
 		
 		String currency = coin.getCurrency();
-		
+//			^Changed the currency to String type
 		double valueInCent = 0;
 
 		if (currency.equals("DKK")) {
+//				^Changed the mean to test the Currency
 			//PPrice nowPrice = controlPrice.getCurrentPrice();
 			valueInCent = getDkkCoinValueInCent(coin, currentPrice);
 		} else {

@@ -7,7 +7,7 @@ import modellayer.Currency;
 import modellayer.PPrice;
 
  
-
+//Creation of the whole Calculation classe to converts coins when it's not cents
 public class Calculation {
     public static double getEuroCoinValueInCent(Coin coin) {
         double valueInCent = 0;

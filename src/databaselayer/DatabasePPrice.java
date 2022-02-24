@@ -24,7 +24,7 @@ public class DatabasePPrice implements IDbPPrice {
 		Connection con = DBConnection.getInstance().getDBcon();
 
 		String baseSelect = "select top 1 price, pZone_id, PZone.name from PPrice";
-		//Added code										^-added data
+		//Added code										^-added data because of the INNER JOIN
 		baseSelect += " INNER JOIN PZone ON PZone.id = PPrice.pZone_id ";
 		//
 		baseSelect += "where pZone_id = " + zoneId + " and starttime < '" + dateNow + "' ";
@@ -38,9 +38,10 @@ public class DatabasePPrice implements IDbPPrice {
 		try {
 			Statement stmt = con.createStatement();
 			stmt.setQueryTimeout(5);
-			// Todo: Get PPrice object
+			
 			
 			ResultSet rs = stmt.executeQuery(baseSelect);
+			//Added retrieving of data 
 			while(rs.next()) {
 				price = rs.getInt("price");
 				pZoneId = rs.getInt("pZone_id");
@@ -48,6 +49,7 @@ public class DatabasePPrice implements IDbPPrice {
 				pZone = new PZone(pZoneId, name);
 				foundPrice = new PPrice (price, pZone);
 			}
+			//
 			
 			
 			stmt.close();

@@ -10,6 +10,7 @@ import modellayer.PReceipt;
 
 import static org.junit.Assert.*;
 
+//Creation of the entire TestBuy class to test the buy methode
 public class TestBuy {
 	ControlPayStation ps;
 

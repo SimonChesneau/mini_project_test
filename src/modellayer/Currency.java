@@ -7,7 +7,7 @@ package modellayer;
 
 public class Currency {
 	
-	public String[] ValidCurrency  = {"EUR","DKK"};
+	public String[] ValidCurrency  = {"EUR","DKK"}; //Changing enum type to String type
 	public enum ValidCoinType { FRACTION, INTEGER };
 
 }

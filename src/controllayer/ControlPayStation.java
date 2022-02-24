@@ -24,7 +24,7 @@ public class ControlPayStation {
 
 	// Receive one coin as input
 	public void addPayment(int amount, String currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
-	
+//										^changes from Currency.ValidCurrency to String 
 		Coin coin = new Coin(amount, currency, coinType);
 		
 		// Test if coin is valid

@@ -17,6 +17,7 @@ import modellayer.Currency;
 @RunWith(Parameterized.class)
 public class TestIllegalCoin {
 	
+	//Creating parameters to test them individualy
 	@Parameterized.Parameters
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][] {
@@ -42,6 +43,7 @@ public class TestIllegalCoin {
    
 	ControlPayStation ps;
 	
+	//Adding a constructor
 	public TestIllegalCoin(int amount, String coinCurrency, Currency.ValidCoinType coinType) {
 		this.amount = amount;
 		this.coinCurrency = coinCurrency;
@@ -58,14 +60,14 @@ public class TestIllegalCoin {
 	 * Verify that illegal coins are rejected.
 	 */
 	
-	
+	//Changing the test to make it work
 	//any coin other than ddk and eur
 	@Test(expected = IllegalCoinException.class)
 	public void shouldRejectIllegalCurrencies() throws IllegalCoinException {
 		ps.addPayment(1, "NOK", Currency.ValidCoinType.INTEGER);
 	}
 	
-	
+	//Changing the test to make it work
 	// unknown Euro coin value
 	@Test(expected = IllegalCoinException.class)
 	public void shouldRejectIllegalEuroCoin() throws IllegalCoinException {

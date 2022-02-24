@@ -21,6 +21,7 @@ public class TestReset {
 		ps = new ControlPayStation();
 	}
 
+	//Modification of the test to make it works
 	/**
 	 * Verify that the pay station is cleared and display shows 0 after a buy scenario
 	 */
@@ -40,6 +41,7 @@ public class TestReset {
 		assertEquals(expectedResult, ps.readDisplay());		//We use the minute amount. Because we round up this amount, if his value is 0, then the pay station have not payment
 	}
 
+	//Modification of the test to make it works
 	/**
 	 * Verify that cancel() clears the pay station
 	 */

@@ -13,7 +13,7 @@ public class DBConnection {
     
     private static String userName = ";user=Simon";
     private static String password = ";password=azerty";
-    private static String encryption = ";encrypt=false;";
+    private static String encryption = ";encrypt=false;";   //adding the encrypt to connect to database
    
     private DatabaseMetaData dma;
     private static Connection con;
@@ -24,7 +24,7 @@ public class DBConnection {
     // the constructor is private to ensure that only one object of this class is created
     private DBConnection()
     {
-    	String url = driver + databaseName + userName + password + encryption;
+    	String url = driver + databaseName + userName + password + encryption; //adding the encrypt to connect to database in the url
 
         try{
             //load of driver

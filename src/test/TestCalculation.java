@@ -8,6 +8,7 @@ import modellayer.Currency;
 import modellayer.PPrice;
 import utility.Calculation;
 
+//Creation of the entire TestCalculation to test if the money conversion is well-made 
 public class TestCalculation {
 	private PPrice price;
 	private Calculation cal;

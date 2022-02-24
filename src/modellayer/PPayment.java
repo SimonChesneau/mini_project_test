@@ -23,11 +23,13 @@ public class PPayment {
 	}
 	
 	public void addAmount(double amount, String currency,
+	//										^Changed currency to String type
 			Currency.ValidCoinType coinType) {
 		
 		double valueInCent = 0;
 
 		if (currency.equals("DKK")) {
+//				^Changed the mean to test the Currency
 			PPrice nowPrice = new PPrice();
 			valueInCent = getDkkCoinValueInCent(amount, coinType, nowPrice);
 		} else {
@@ -48,13 +50,15 @@ public class PPayment {
 	}
 	
 	public void validateCoin(int coinValue, String currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
-
+//												^Changed currency to String type
 		if (currency.equals("EUR")) {
+//				^Changed the mean to test the Currency
 			boolean euroCoinOk = validateEuro(coinValue, coinType);
 			if (!euroCoinOk) {
 				throw new IllegalCoinException("Invalid Euro coin: " + coinValue);
 			}
 		} else if (currency.equals("DKK")) {
+//					^Changed the mean to test the Currency
 			boolean dkkCoinOk = validateDkk(coinValue, coinType);
 			if (!dkkCoinOk) {
 				throw new IllegalCoinException("Invalid Dkk coin: " + coinValue);

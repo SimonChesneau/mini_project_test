@@ -37,6 +37,7 @@ public class TestCalculationCurrencyEuro {
 		assertEquals("Should display 0 min for no coins", expectedParkingTime, ps.readDisplay());
 	}	
 
+	//Modification of the test to make it work
 	/**
 	 * Entering 5 cents should make the display report 2 minutes parking time
 	 */
@@ -58,6 +59,7 @@ public class TestCalculationCurrencyEuro {
         assertEquals("should display 2 min for 5 cents", expectedParkingTime, ps.readDisplay());
 	}
 
+	//Creating more test for this methode
 	/**
 	 * Entering 1 cent should make the display report 1 minutes parking time
 	 */

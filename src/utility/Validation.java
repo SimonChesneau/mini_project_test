@@ -10,13 +10,15 @@ public class Validation {
 		
 		int coinValue = coin.getAmount();
 		String currency = coin.getCurrency();
-
+//				^ Changing currency type to String type
 		if (currency.equals("EUR")) {
+//				^ Changing currency test becase of the type change
 			boolean euroCoinOk = validateEuro(coin);
 			if (!euroCoinOk) {
 				throw new IllegalCoinException("Invalid Euro coin: " + coinValue);
 			}
 		} else if (currency.equals("DKK")) {
+//					^ Changing currency test becase of the type change
 			boolean dkkCoinOk = validateDkk(coin);
 			if (!dkkCoinOk) {
 				throw new IllegalCoinException("Invalid Dkk coin: " + coinValue);

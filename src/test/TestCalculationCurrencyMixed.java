@@ -21,6 +21,7 @@ public class TestCalculationCurrencyMixed {
 		ps = new ControlPayStation();
 	}
 
+        //Changing th test to make it work 
 	/**
 	 * Entering 1 cent and 50 �re should make the display report 4 minutes parking time.
 	 */
@@ -46,6 +47,7 @@ public class TestCalculationCurrencyMixed {
         assertEquals("Should display 4 min for 50 �re and 1 cent", expectedParkingTime, ps.readDisplay());   		
 	}
 	
+        //Adding more test
 	/**
 	 * Entering 1 euro and 1 DKK should make the display report 46 minutes parking time.
 	 */

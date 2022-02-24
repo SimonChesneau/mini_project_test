@@ -31,6 +31,7 @@ public class TestCalculationCurrencyDkk {
 		int expectedParkingTime = 3;	// In minutes
 		int coinValue = 50;
 		String coinCurrency = "DKK";
+//			^Changed the coinCurrency to String type
 		Currency.ValidCoinType coinType = Currency.ValidCoinType.FRACTION;
 		
 		// Act
@@ -40,11 +41,12 @@ public class TestCalculationCurrencyDkk {
 		assertEquals("Should display 3 min for 50 �re", expectedParkingTime, ps.readDisplay());
 	}
 
+	//Adding another test
 	/**
 	 * Entering 2 DKK and 1 DKK should make the display report 16 minutes parking time.
 	 */
 	@Test
-	public void shouldDisplay3MinFor2DKKAnd1DKK() throws IllegalCoinException {
+	public void shouldDisplay16MinFor2DKKAnd1DKK() throws IllegalCoinException {
 		
 		// Arrange
 		int expectedParkingTime = 16;	// In minutes

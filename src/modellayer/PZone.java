@@ -26,6 +26,7 @@ public class PZone {
 		this.id = pZoneId;
 	}
 
+	//Adding the getter and setter for name attribute
 	public String getName() {
 		return name;
 	}
@@ -33,7 +34,7 @@ public class PZone {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	//////////////////////////////////////////////
 	
 	
 }
