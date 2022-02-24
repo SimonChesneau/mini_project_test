@@ -28,7 +28,7 @@ public class Calculation {
 
  
 
-    public static double getDkkCoinValueInCent(Coin coin, PPrice price) {
+    public double getDkkCoinValueInCent(Coin coin, PPrice price) {
         double valueInCent = 0;
         Currency.ValidCoinType coinType = coin.getCoinType();
         double coinValue = coin.getAmount();
