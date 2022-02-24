@@ -58,7 +58,7 @@ public class PPayStation {
 		double valueInCent = 0;
 
 		if (currency.equals("DKK")) {
-//				^Changed the mean to test the Currency
+//				^Changed the way to test the Currency
 			//PPrice nowPrice = controlPrice.getCurrentPrice();
 			valueInCent = getDkkCoinValueInCent(coin, currentPrice);
 		} else {
