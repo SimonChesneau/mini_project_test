@@ -1,10 +1,9 @@
 package modellayer;
 
-import java.util.Date;
 
 /**
  * Inspired by the book: Flexible, Reliable Software
- * Henrik Bærbak Christensen: Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
+ * Henrik Bï¿½rbak Christensen: Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
 public class PPrice {
@@ -15,8 +14,6 @@ public class PPrice {
 	private PZone parkingZone;	
 	// Exchange rate 1 Euro to DKK
 	private double exchangeEuroDkk;
-	private Date startTime;
-
 	// Hard coded values
 	public PPrice() {
 		this.price = 24;

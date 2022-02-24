@@ -33,8 +33,8 @@ public class TestCalculation {
 		Coin coin2 = new Coin(1, currency, coinType2);
 		
 		//Act
-		result1 = cal.getEuroCoinValueInCent(coin1);
-		result2 = cal.getEuroCoinValueInCent(coin2);
+		result1 = Calculation.getEuroCoinValueInCent(coin1);
+		result2 = Calculation.getEuroCoinValueInCent(coin2);
 		
 		//Assert
 		assertEquals(expectedResult1, result1, 1d);
