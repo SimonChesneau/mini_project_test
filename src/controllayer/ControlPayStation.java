@@ -52,12 +52,13 @@ public class ControlPayStation {
 		
 		// Save in Parkingsystem db
 		IDbPBuy dbBuy = new DatabasePBuy();
-		dbBuy.insertParkingBuy(thisBuy);
+		int retrieved_id = dbBuy.insertParkingBuy(thisBuy);
 		//
 		ControlReceipt ctrlReceipt = new ControlReceipt(payStation.getTimeBoughtInMinutes());
 		
 		reset();	
-		PReceipt buyReceipt = ctrlReceipt.getParkingReceipt();		
+		PReceipt buyReceipt = ctrlReceipt.getParkingReceipt();	
+		buyReceipt.setBuy_id(retrieved_id);
 		return buyReceipt;
 	}
 

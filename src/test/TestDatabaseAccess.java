@@ -79,7 +79,7 @@ public class TestDatabaseAccess {
 		
 	}	
 	
-	//Changint the test to make it work
+	//Changing the test to make it work
 	@Test
 	public void wasRetrievedPriceDatabaselayer() {
 		// Arrange
