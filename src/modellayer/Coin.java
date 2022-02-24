@@ -3,10 +3,10 @@ package modellayer;
 public class Coin {
 
 	private int amount; 
-	private Currency.ValidCurrency currency;
+	private String currency;
 	private Currency.ValidCoinType coinType;
 	
-	public Coin(int amount, Currency.ValidCurrency currency, Currency.ValidCoinType coinType) {
+	public Coin(int amount, String currency, Currency.ValidCoinType coinType) {
 		this.amount = amount;
 		this.currency = currency;
 		this.coinType = coinType;
@@ -20,11 +20,11 @@ public class Coin {
 		this.amount = amount;
 	}
 	
-	public Currency.ValidCurrency getCurrency(){
+	public String getCurrency(){
 		return currency;
 	}
 	
-	public void setCurrency(Currency.ValidCurrency currency){
+	public void setCurrency(String currency){
 		this.currency = currency;
 	}
 	

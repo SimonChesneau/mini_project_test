@@ -8,7 +8,7 @@ import databaselayer.IDbPBuy;
 import databaselayer.DatabasePBuy;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
@@ -23,7 +23,7 @@ public class ControlPayStation {
 	}
 
 	// Receive one coin as input
-	public void addPayment(int amount, Currency.ValidCurrency currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
+	public void addPayment(int amount, String currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
 	
 		Coin coin = new Coin(amount, currency, coinType);
 		

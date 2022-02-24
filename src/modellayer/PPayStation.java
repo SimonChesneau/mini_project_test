@@ -2,11 +2,12 @@ package modellayer;
 
 import controllayer.ControlPrice;
 import controllayer.IllegalCoinException;
+import utility.Calculation;
 import utility.Validation;
 
 /**
  * Inspired by the book: Flexible, Reliable Software
- * Henrik Bærbak Christensen: Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
+ * Henrik Bï¿½rbak Christensen: Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
 public class PPayStation {
@@ -53,11 +54,11 @@ public class PPayStation {
 	
 	public void addAmount(Coin coin, PPrice currentPrice) {
 		
-		Currency.ValidCurrency currency = coin.getCurrency();
+		String currency = coin.getCurrency();
 		
 		double valueInCent = 0;
 
-		if (currency == Currency.ValidCurrency.DKK) {
+		if (currency.equals("DKK")) {
 			//PPrice nowPrice = controlPrice.getCurrentPrice();
 			valueInCent = getDkkCoinValueInCent(coin, currentPrice);
 		} else {

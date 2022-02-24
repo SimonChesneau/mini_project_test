@@ -7,7 +7,7 @@ import controllayer.*;
 import modellayer.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
@@ -22,18 +22,54 @@ public class TestCalculationCurrencyMixed {
 	}
 
 	/**
-	 * Entering 1 cent and 50 øre should make the display report 4 minutes parking time.
+	 * Entering 1 cent and 50 ï¿½re should make the display report 4 minutes parking time.
 	 */
 	@Test
 	public void shouldDisplay4MinFor1CentAnd1Ore() throws IllegalCoinException {
-		// Arrange
-		
-		// Act
-
-		// Assert
-		assertEquals("Dummy", 0, 1);		
+		 // Arrange
+        int expectedParkingTime = 4;    // In minutes
+        int coinValueOre = 50;
+        int coinValueCent = 1;
+        String coinCurrency1 = "DKK";
+        Currency.ValidCoinType coinType1 = Currency.ValidCoinType.FRACTION;
+       
+        String coinCurrency2 = "EUR";
+        Currency.ValidCoinType coinType2 = Currency.ValidCoinType.FRACTION;
+       
+        // Act
+        ps.addPayment(coinValueOre, coinCurrency1, coinType1);
+        ps.addPayment(coinValueCent, coinCurrency2, coinType2);
+       
+        System.out.println(ps.readDisplay());
+           
+        // Assert
+        assertEquals("Should display 4 min for 50 ï¿½re and 1 cent", expectedParkingTime, ps.readDisplay());   		
 	}
-
+	
+	/**
+	 * Entering 1 euro and 1 DKK should make the display report 46 minutes parking time.
+	 */
+	@Test
+	public void shouldDisplay46MinFor1EuroAnd1DKK() throws IllegalCoinException {
+		 // Arrange
+        int expectedParkingTime = 46;    // In minutes
+        int coinValueDKK = 1;
+        int coinValueCent = 1;
+        String coinCurrency1 = "DKK";
+        Currency.ValidCoinType coinType1 = Currency.ValidCoinType.INTEGER;
+       
+        String coinCurrency2 = "EUR";
+        Currency.ValidCoinType coinType2 = Currency.ValidCoinType.INTEGER;
+       
+        // Act
+        ps.addPayment(coinValueDKK, coinCurrency1, coinType1);
+        ps.addPayment(coinValueCent, coinCurrency2, coinType2);
+       
+        //System.out.println(ps.readDisplay());
+           
+        // Assert
+        assertEquals("Should display 46 min for 1 DKK and 1 euro", expectedParkingTime, ps.readDisplay());   		
+	}
 	
 	/** Fixture for pay station testing. */
 	@After

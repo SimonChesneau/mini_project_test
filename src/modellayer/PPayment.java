@@ -22,12 +22,12 @@ public class PPayment {
 		this.amount = amount;
 	}
 	
-	public void addAmount(double amount, Currency.ValidCurrency currency,
+	public void addAmount(double amount, String currency,
 			Currency.ValidCoinType coinType) {
 		
 		double valueInCent = 0;
 
-		if (currency == Currency.ValidCurrency.DKK) {
+		if (currency.equals("DKK")) {
 			PPrice nowPrice = new PPrice();
 			valueInCent = getDkkCoinValueInCent(amount, coinType, nowPrice);
 		} else {
@@ -47,14 +47,14 @@ public class PPayment {
 		return timeBoughtInMinutes;
 	}
 	
-	public void validateCoin(int coinValue, Currency.ValidCurrency currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
+	public void validateCoin(int coinValue, String currency, Currency.ValidCoinType coinType) throws IllegalCoinException {
 
-		if (currency == Currency.ValidCurrency.EURO) {
+		if (currency.equals("EUR")) {
 			boolean euroCoinOk = validateEuro(coinValue, coinType);
 			if (!euroCoinOk) {
 				throw new IllegalCoinException("Invalid Euro coin: " + coinValue);
 			}
-		} else if (currency == Currency.ValidCurrency.DKK) {
+		} else if (currency.equals("DKK")) {
 			boolean dkkCoinOk = validateDkk(coinValue, coinType);
 			if (!dkkCoinOk) {
 				throw new IllegalCoinException("Invalid Dkk coin: " + coinValue);

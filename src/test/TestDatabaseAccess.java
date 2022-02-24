@@ -3,6 +3,10 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 //import controllayer.ControlPayStation;
@@ -48,7 +52,7 @@ public class TestDatabaseAccess {
 	
 	
 	@Test
-	public void wasInsertedBuy() {
+	public void wasInsertedBuy() throws SQLException {
 		
 		// Arrange
 		LocalDate timeNow = java.time.LocalDate.now();
@@ -65,9 +69,15 @@ public class TestDatabaseAccess {
 		
 		// Act
 		int key = 0; //TODO: Call dbPbuy
+		try {
+			key = dbPbuy.insertParkingBuy(tempPBuy);
+			
+		} catch (DatabaseLayerException e) {
+			System.out.println("Cannot insert the value inside the database");
+		}
 		
 		// Assert
-		assertEquals("Dummy", key > 0);
+		assertEquals(true, key > 0);
 		
 	}	
 	
@@ -81,9 +91,14 @@ public class TestDatabaseAccess {
 
 		
 		// Act
+		try {
+			foundPrice = dbPrice.getPriceByZoneId(pZoneId);
+		} catch(DatabaseLayerException ex) {
+			System.out.println("Cannot retrieve the zone price");
+		}
 
 		// Assert
-		assertEquals("Dummy", 0, 1);
+		assertEquals("Is the price retrieved the good one - ", foundPrice.getParkingPrice(), 25);
 		
 	}
 	
@@ -92,12 +107,19 @@ public class TestDatabaseAccess {
 	public void wasRetrievedPriceControllayer() {
 
 		// Arrange
-
+		PPrice foundPrice = null;
+		ControlPrice ctrlPrice = new ControlPrice();
+		int pZoneId = 2;
 		
 		// Act
+		try {
+			foundPrice = ctrlPrice.getPriceRemote(pZoneId);
+		}catch(DatabaseLayerException ex) {
+			System.out.println("Fail");
+		}
 
 		// Assert
-		assertEquals("Dummy", 0, 1);
+		assertEquals("Is the price retrieved the good one - ", foundPrice.getParkingPrice(), 25);
 		
 	}	
 	

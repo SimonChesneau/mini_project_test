@@ -9,14 +9,14 @@ public class Validation {
 	public static void validateCoin(Coin coin) throws IllegalCoinException {
 		
 		int coinValue = coin.getAmount();
-		Currency.ValidCurrency currency = coin.getCurrency();
+		String currency = coin.getCurrency();
 
-		if (currency == Currency.ValidCurrency.EURO) {
+		if (currency.equals("EUR")) {
 			boolean euroCoinOk = validateEuro(coin);
 			if (!euroCoinOk) {
 				throw new IllegalCoinException("Invalid Euro coin: " + coinValue);
 			}
-		} else if (currency == Currency.ValidCurrency.DKK) {
+		} else if (currency.equals("DKK")) {
 			boolean dkkCoinOk = validateDkk(coin);
 			if (!dkkCoinOk) {
 				throw new IllegalCoinException("Invalid Dkk coin: " + coinValue);

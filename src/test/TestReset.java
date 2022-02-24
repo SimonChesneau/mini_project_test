@@ -7,7 +7,7 @@ import controllayer.*;
 import modellayer.*;
 
 /**
- * Inspired by the book: Flexible, Reliable Software Henrik Bærbak Christensen:
+ * Inspired by the book: Flexible, Reliable Software Henrik Bï¿½rbak Christensen:
  * Flexible, Reliable Software. Taylor and Francis Group, LLC 2010
  */
 
@@ -26,7 +26,18 @@ public class TestReset {
 	 */
 	@Test
 	public void shouldClearAfterBuy() throws IllegalCoinException, Exception {
-		//
+		// Arrange
+		int coinValue = 1;
+        String coinCurrency = "EUR";
+        Currency.ValidCoinType coinType = Currency.ValidCoinType.FRACTION;
+        int expectedResult = 0;
+		
+        // Act
+        ps.addPayment(coinValue, coinCurrency, coinType);
+        ps.buy();	//With this method, the pay station will be cleared
+		
+        // Assert
+		assertEquals(expectedResult, ps.readDisplay());		//We use the minute amount. Because we round up this amount, if his value is 0, then the pay station have not payment
 	}
 
 	/**
@@ -34,6 +45,18 @@ public class TestReset {
 	 */
 	@Test
 	public void shouldClearAfterCancel() throws IllegalCoinException {
-		//
+		// Arrange
+		int coinValue = 1;
+		String coinCurrency = "EUR";
+		Currency.ValidCoinType coinType = Currency.ValidCoinType.FRACTION;
+		int expectedResult = 0;
+				
+		// Act
+		ps.addPayment(coinValue, coinCurrency, coinType);
+		ps.cancel();
+		
+        // Assert
+		assertEquals(expectedResult, ps.readDisplay());		//We use the minute amount. Because we round up this amount, if his value is 0, then the pay station have not payment
+
 	}
 }

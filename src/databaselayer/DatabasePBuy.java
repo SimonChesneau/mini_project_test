@@ -32,6 +32,7 @@ public class DatabasePBuy implements IDbPBuy {
 			ResultSet rs = stmt.getGeneratedKeys();
 		    if (rs.next()) {
 		    	insertedKey = rs.getInt(1);
+		    	parkingBuy.setId(insertedKey);
 		    }
 		    stmt.close();
 		} catch (SQLException ex) {
